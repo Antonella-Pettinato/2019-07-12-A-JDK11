@@ -49,7 +49,19 @@ public class FoodController {
     @FXML
     void doCreaGrafo(ActionEvent event) {
     	txtResult.clear();
-    	txtResult.appendText("Creazione grafo...");
+    	
+    	if(this.txtPorzioni.getText().compareTo("")==0) {
+    		return;
+    	}
+    	else {
+    		int input=0;
+    		try {
+    			input=Integer.parseInt(this.txtPorzioni.getText());
+    			this.txtResult.appendText(this.model.creaGrafo(input));
+    			
+    			
+    		} catch(NumberFormatException ne) {}
+    	}
     }
     
     @FXML
